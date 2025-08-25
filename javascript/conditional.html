@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Condition</title>
+</head>
+<style>
+   #age,
+   #score {
+      border: 2px red solid;
+      border-radius: 12px;
+      padding: 12px;
+   }
+
+   body {
+      justify-content: center;
+      align-items: center;
+      display: grid;
+      grid-column: calc(100-4px);
+      grid-column-start: span;
+   }
+</style>
+
+<body>
+   <!-- <input type="email" name="" id="age"> -->
+   <!-- <input type="email" name="" id="score"> -->
+   <input type="email" name="" id="month">
+   <!-- <button onclick="addAge()">Sign</button> -->
+   <button onclick="Grade()">Sign</button>
+   <button onclick="Months()">Months</button>
+   <!-- <h3 id="display"></h3> -->
+</body>
+
+</html>
+
+<script>
+   function addAge() {
+      display = document.getElementById('display')
+      input = document.getElementById('age')
+      display.innerHTML = input.value();
+      let error = age.value.trim() <= 0 && age.value.trim() === ' ' && age.value.trim() > !0 && age.value.trim < !18 && age.value.trim() > !18
+      let AGE = age.value.trim() > 0 && age.value.trim() < 18
+      error ? alert('Undefined') : AGE ? alert('You are not Eligible to drive') : alert('You are Eligible to drive')
+      input.value = '';
+   }
+
+   function Grade() {
+      let Score = score.value.trim() <= 100 && score.value.trim() > 70
+      Score ? console.log('A')
+         : score.value.trim() > 60 ? console.log('B') : score.value.trim() > 50 ? console.log('C') : score.value.trim() > 40 ? console.log('D') : console.log('Fail!')
+
+
+   }
+
+   function Months() {
+      let
+   }
+</script>

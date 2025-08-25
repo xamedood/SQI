@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>BMI CALCULATOR</title>
+</head>
+<style>
+   body {
+      align-content: center;
+   }
+
+   .container {
+      background-color: rgba(255, 0, 0, 0.288);
+      width: 30%;
+      height: 40vh;
+      display: flex;
+      flex-direction: column;
+      padding: 12px;
+      justify-content: center;
+      gap: 20px;
+      align-content: center;
+
+   }
+
+   input,
+   button {
+      height: 20%;
+      border-radius: 12px;
+      border-style: solid;
+      background-color: transparent;
+   }
+</style>
+
+<body>
+   <section>
+      <div class="container">
+         <input type="text" name="input" id="weight">
+         <input type="text" name="input" id="height">
+         <button type="button" onclick="bmi()">Calculate</button>
+         <h2 id="output"></h2>
+      </div>
+
+   </section>
+</body>
+
+</html>
+
+
+<script>
+   function bmi() {
+      weight = document.getElementById('weight').value.trim()
+      height = document.getElementById('height').value.trim()
+      let bmi = weight * height
+      output.innerHTML = `${bmi}`
+      alert(`Your bmi is ${bmi}`)
+   }
+   // ways of creating an array
+   // let arr = [];
+   // let arr2 = new Array();
+   // let arr3 = Array();
+   // console.log(arr);
+   // console.log(arr2);
+   // console.log(arr3);
+
+   // // Arr of numbers
+   // let numArr = [1, 2, 3, 4, 5];
+   // let stringArr = ["Ojett", "Francis", "Somidotun"];
+   // let arrOfArr = [
+   //    [1, 2, 3, 4],
+   //    [5, 6, 7, 8, 9],
+   //    [10, 11, 12, 13, 14, 15, 16],
+   // ];
+   // let mixedArrv = [1, "Francis", true, null];
+
+   // let string = "Javascript";
+   // numArr[0] = 600;
+   // console.log(numArr);
+
+   // arrOfArr[0][2] = 70;
+   // console.log(arrOfArr);
+
+   // // Length
+   // console.log(arrOfArr.length);
+
+   // // Last Index in string
+   // console.log(numArr.length - 1);
+   // console.log(arrOfArr[arrOfArr.length - 1]);
+   // console.log();
+
+   // console.log(arrOfArr[arrOfArr.length - 1]);
+   // let lastArray = arrOfArr[arrOfArr.length - 1];
+   // console.log(lastArray[lastArray.length - 1]);
+
+   // // to give the same output >>>>>>
+   // console.log(arrOfArr[arrOfArr.length - 1][arrOfArr[arrOfArr.length - 1].length - 1]);
+
+   // // Includes in Array
+   // console.log(stringArr.includes("Mr Stan"));
+
+   // // Slice in Array
+   // console.log(numArr.slice(0, 3));
+
+   // //   Push used to modify arrays
+   // let newNumArr = [1, 2, 3, 4, 5, 6]
+   // newNumArr.push(7)
+   // console.log(newNumArr);
+
+   // let javaUser = []
+   // console.log(javaUser);
+   // javaUser.push('Mr Faruq')
+   // console.log(javaUser);
+   // javaUser.push('Mr Ojett')
+   // console.log(javaUser);
+
+   // // Pop used to remove the last characters in an array
+
+   // let newestArr = [1, 2, 3, 4, 5]
+   // newestArr.pop()
+   // console.log(newestArr);
+
+   // // Unshift used to add characters to the begining of an array
+
+   // newestArr.unshift(0)
+   // console.log(newestArr);
+
+   // // Shift used to remove the first characters in an array
+
+   // newestArr.shift(0)
+   // console.log(newestArr);
+
+   // // Join turning an array to a string
+   // let newNum = [1, 2, 3, 4, 5, 6, 7]
+   // console.log(newNum.join(','));
+
+   // // Eval sees things as operators not only strings
+   // console.log(newNum.join('+'));
+   // console.log(eval(newNum.join('+')));
+
+   // // //Join
+   // // let newNum = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+   // // console.log(newNum.join('+'));
+
+   // //splice
+   // let spliceArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+   // spliceArr.splice(3, 5, 400, 410, 420, 430)
+   // console.log(spliceArr);
+
+   // let spliceArrstring = ['Mr Adedotun']
+   // let displayName = document.querySelector('.output')
+   // displayName.innerHTML = `<h1>${spliceArrstring[0]}</h1>`
+
+   // function spliceName() {
+   //    let replaceInput = document.querySelector('.replaceInput')
+   //    spliceArrstring.splice(0, 1, replaceInput.value.trim())
+   //    displayName.innerHTML = `<h1>${spliceArrstring[0]}</h1>`
+   // }
+
+
+   // // Sort
+   // let numberArr = [1, 6, 7, 8, 4, 3, 2];
+   // numberArr.sort((a, b) => a - b)
+   // // numberArr.sort((a, b) => b - a) descending order
+   // console.log(numberArr);
+
+   // let stringArr2 = ['Gbolahan', 'stan', 'Shalom', 'Aisha', 'Dara', 'Ezekiel'];
+   // stringArr2.sort()
+   // console.log(stringArr2);
+
+   // // Reverse
+   // stringArr2.reverse()
+   // console.log(stringArr2);
+</script>

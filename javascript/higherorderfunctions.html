@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+   //ForEach Map Find FIndIndex Filter Some Every REduce
+
+   let array = [1, 2, 3, 4, 5]
+
+   for (const num of array) {
+      console.log(num);
+   }
+   console.log(array.forEach(function (num) {
+      console.log(num);
+   }));
+
+   array.map(function (n, i, arr) {
+      console.log(typeof (n))
+      console.log(typeof (i))
+      console.log(typeof (arr))
+   });
+   array.find(function (n, i, arr) {
+      console.log(typeof (n))
+      console.log(typeof (i))
+      console.log(typeof (arr))
+   })
+   array.findIndex(function (n, i, arr) {
+      console.log(typeof (n))
+      console.log(typeof (i))
+      console.log(typeof (arr))
+   })
+   array.filter(function (n, i, arr) {
+      console.log(typeof (n))
+      console.log(typeof (i))
+      console.log(typeof (arr))
+   })
+   array.some(function (n, i, arr) {
+      console.log(typeof (n))
+      console.log(typeof (i))
+      console.log(typeof (arr))
+   })
+   array.every(function (n, i, arr) {
+      console.log(typeof (n))
+      console.log(typeof (i))
+      console.log(typeof (arr))
+   })
+   array.reduce(function (n, i, arr) {
+      console.log(typeof (n))
+      console.log(typeof (i))
+      console.log(typeof (arr))
+
+   })
+
+   let numberd = [2, 56, 3, 6, 9, '24']
+
+   function addALL() {
+      let spliced = numberd.splice()
+      console.log(spliced);
+      return spliced
+   }
+
+   addALL()
+</script>

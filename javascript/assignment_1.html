@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>assignment1</title>
+   <style>
+      body {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         background-color: rgba(255, 0, 0, 0.11);
+      }
+
+      h1 {
+         text-align: center;
+         color: blue;
+      }
+
+      div {
+         text-align: center;
+         background-color: white;
+         border-radius: 5px;
+         width: 410px;
+      }
+
+      input {
+         padding: 10px;
+         width: 300px;
+         margin-bottom: 10px;
+      }
+
+      button {
+         padding: 10px 20px;
+         background-color: rgb(129, 154, 175);
+         color: white;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+      }
+
+      button:hover {
+         background-color: blue;
+      }
+
+      h1 {
+         color: skyblue;
+      }
+   </style>
+</head>
+
+<body>
+   <main>
+      <h1>Word Sensor APp</h1>
+      <input type="text" id="Sensor" placeholder="Enter data here">
+      <button onclick="showWord()">Submit</button>
+      <div>
+         <h2 id="inner"></h2>
+      </div>
+   </main>
+</body>
+
+</html>
+<script>
+   function showWord() {
+      let inputBox = document.getElementById('Sensor')
+      let output = document.getElementById('inner')
+      output.innerHTML = inputBox.value.replaceAll('fuck', '****');
+      // let replace = output.
+      inputBox.value = '';
+   } 
+</script>

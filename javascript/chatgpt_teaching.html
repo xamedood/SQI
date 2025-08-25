@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+   books = [
+      { id: 1, title: 'Psychlogy of Money', authur: "smith" },
+      { id: 2, title: 'Psychlogy of Mint', authur: "mith" },
+      { id: 3, title: 'logy of Moy', authur: "th" }
+   ]
+   console.log(books);
+   for (let index = 1; index < books.length; index++) {
+      const element = books[index];
+      console.log(element.title);
+
+   }
+   books.push({ id: 4, title: 'money', authur: 'yh' })
+   console.log(books)
+   localStorage.setItem("bookss", JSON.stringify(books));
+   let retrieved = JSON.parse(localStorage.getItem("bookss"));
+
+   books.forEach(book => {
+      console.log(book.title)
+   });
+   const toupdate = retrieved.find(book => book.id == 2)
+   if (toupdate) {
+      toupdate.title = "updated"
+   }
+</script>

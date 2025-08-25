@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+   setTimeout(function () {
+      console.log('this is a timeout');
+
+   }, 500)
+
+   var interval = setInterval(
+      function () {
+         console.log('interval of 1s')
+      }, 1000
+   )
+
+   //clear interval 
+   setTimeout(function () {
+      clearInterval(interval)
+   }, 10000)
+</script>

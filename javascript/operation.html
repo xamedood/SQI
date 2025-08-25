@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Operators</title>
+</head>
+
+<body>
+   <!-- <h1 id="h1Tag">HELLO EVERYBODY</h1> -->
+   <input type="text" class="replacedInput" placeholder="Enter your name">
+   <button onclick="display()">Enter</button>
+   <h1 class="output"></h1>
+</body>
+
+</html>
+<script>
+
+   //OPERATORS
+   //ASSIGNMENT OPERTOR 
+   //+= Works for strings and numbers
+
+   let a = 4
+   a += 17
+   console.log(a);
+
+   //*= this is multiplication operator works for numbers
+   let b = 12
+   b *= 3
+   console.log(b);
+
+   //-= this is subtraction operator works for numbers
+   let c = 20
+   c -= 5
+   console.log(c);
+   ///= this is division operator works for numbers
+   let d = 100
+   d /= 4
+   console.log(d);
+
+   //%= this is modulus operator works for numbers
+   let e = 10
+   e %= 3
+   console.log(e); //This gives the remainder of the division
+
+   //Arithmetic Operators
+   // + addition
+   // - subtraction   
+   // * multiplication
+   // / division
+   // % modulus (remainder of division)
+   // ** exponentiation (a raised to the power of b)
+
+   //Examples of Arithmetic Operators
+   let a1 = 6
+   let b1 = 2
+   console.log(a1 + b1); //Addition
+   console.log(a1 - b1); //Subtraction 
+   console.log(a1 * b1); //Multiplication
+   console.log(a1 / b1); //Division
+   console.log(a1 % b1); //Modulus
+   console.log(a1 ** b1); //Exponentiation (a raised to the power of b)
+
+   //Comparison Operators alwys return a boolean value (true or false)
+   // == equal to or loose equality
+   // === strictly equal to (checks value and type)   
+   // != not equal to
+   // !== strictly not equal to (checks value and type)    
+   // > greater than
+   // < less than
+   // >= greater than or equal to
+   // <= less than or equal to
+   //Examples of Comparison Operators
+   let comp = 4 == 4
+   console.log(comp);
+   let comp1 = 4 === '4'
+   console.log(comp1);
+   let comp2 = 4 != 2
+   console.log(comp2);
+   let comp3 = 4 !== 2
+   console.log(comp3);
+   let comp4 = 4 > 2
+   console.log(comp4);
+   let comp5 = 4 < 2
+   console.log(comp5);
+   let comp6 = 4 >= 2
+   console.log(comp6);
+   let comp7 = 4 <= 3
+   console.log(comp7);
+
+   //LOGICAL OPERTORS
+   //OR STATEMENT
+   let log1 = true || 2 > 1 || false
+   console.log(log1);
+
+   //AND STATEMENT
+   let log2 = true && true
+   console.log(log2);
+
+   //INCREMENT OPERATOR works with numbers 
+   //PRE INCREMENT Acts immediately
+   let index = 4
+   console.log(++index);
+   console.log(index);
+
+   //POST INCREMENT waits for the next line
+   let index1 = 3
+   console.log(index1++);
+   console.log(index1);
+
+   //PRE DECREMENT Acts immediately
+   let i = 1
+   console.log(--i);
+   console.log(i);
+
+   //POST DECREMENT Waits for th e next line
+   let int = 3
+   console.log(int--);
+   console.log(int);
+
+   //WINDOW ALERT METHOD
+   //ALERT window.alert() and alert() are the same
+   // window.alert('Welcome to javascript')
+
+   //CONFIRM RETURS TRUE OR FALSE
+   // let confirmer = confirm('Are you sure you want to delete?')
+   // console.log(confirmer);
+
+
+   //prompt
+   // let userPrompt = prompt('Enter your Phone Number', '+234 xxx xxx xxxx')
+   // console.log(userPrompt);
+
+   //FALSY VALUES 0, '', false, undefined, null, 0n
+
+   //TRUTHY VALUES 'A  string that has anyhing inside it', True, ANY NUMBER FROM 1 TO INFINITY OR
+   // A WHITESPACE OR ANY NUMBER FROM -1 EXCEPT 0
+
+   //TENARY OPERATOR
+   //IS A CONDITIONAL STATEMENT
+   let isRaining = true
+   isRaining ? console.log('You need a rain coat') : console.log('You are free to move around');
+
+   //WEATHER CONDITIONS, RAINY,CLOUDY,SUNNY,WINDY
+   let weatherCondition = 'uuytre'
+   if (weatherCondition.trim().toLowerCase() === 'rainy') {
+      console.log('It is Rainy');
+   } else if (weatherCondition.trim().toLowerCase() === 'cloudy') {
+      console.log('It is Cloudy');
+   } else if (weatherCondition.trim().toLowerCase() === 'sunny') {
+      console.log('It is Sunny');
+   } else {
+      console.log('Invalid Input');
+
+   }
+
+   //ARRAYS
+   let arr = []
+   let arr2 = new Array()
+   let arr3 = Array()
+   console.log(arr);
+   console.log(arr2);
+   console.log(arr3);
+   //ARRAY OF NUMBERS
+   let numArr = [1, 2, 3, 4, 5]
+   let stringArr = ['Mr Gbolhan', 'Mr stan', 'Mr ezekiel']
+   let arrOfArr = [[1, 2, 3, 4], [5, 6, 7, 8, 9, 10], [11, 12, 13, 14, 16]]
+   let mixedArr = [1, 'Mr dara', true, null, {}]
+
+   let string = 'Javascript'
+   numArr[0] = 600
+   console.log(numArr);
+   console.log(arrOfArr[0][2]);//to target what is in an array
+   //  LENGTH
+   console.log(arrOfArr.length);
+   console.log(numArr.length);
+
+   //LAST INDEX
+   console.log(arrOfArr[1].length - 1);
+   console.log(arrOfArr[arrOfArr.length - 1])//sort
+   let lastArrOfArr = arrOfArr[arrOfArr.length - 1]
+   console.log(lastArrOfArr)
+   console.log(lastArrOfArr[lastArrOfArr.length - 1]);
+   console.log(arrOfArr[arrOfArr.length - 1][arrOfArr[arrOfArr.length - 1].length - 1]);
+
+   //INCLUDES
+   console.log(stringArr.includes('Mr stan'));
+
+   //SLICE
+   console.log(numArr.slice(2));
+
+   //PUSH adds new element to the back of an arry
+   let newNumArr = [1, 2, 3, 4, 5, 6]
+   newNumArr.push(7)
+   console.log(newNumArr);
+
+   let javaUser = []
+   console.log(javaUser);
+   javaUser.push('Mr Faruq')
+   console.log(javaUser);
+   javaUser.push('Mr Ojett')
+   console.log(javaUser);
+
+   //POP delets the last element at the back of my array
+   let newStArr = [1, 2, 3, 4, 5, 6]
+   console.log(newStArr);
+   newStArr.pop()
+   console.log(newStArr);
+
+   //UNSHIFT
+   newStArr.unshift(0)
+   console.log(newStArr);
+
+   //SHIFT
+   newStArr.shift()
+   console.log(newStArr);
+
+   //JOIN
+   let newNum = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+   console.log(newNum.join('+'));
+
+   //Splice the job is to delete and replace you can decide to delete and not replace
+   //THE DELETE FUNCTION
+   let SpliceArr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+   SpliceArr.splice(3, 1)
+   console.log(SpliceArr);
+
+   //THE REPLACE FUNCTION(SPLICE)
+   let SpliceArr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+   SpliceArr.splice(3, 1, 400, 410, 420, 430)
+   console.log(SpliceArr2);
+
+
+   // let splicedArrString = ['Mr Adedotun']
+   // let displayName = document.querySelector('.output')
+   // displayName.innerHTML = <h1>${splicedArrString[0]}</h1>
+   // function display() {
+   //     let replaceInput = document.querySelector('.replacedInput')
+   //     splicedArrString.splice(0, 1, replaceInput.value.trim())
+   //     displayName.innerHTML = <h1>${splicedArrString[0]}</h1>
+   // }
+
+   //sort
+   let sortArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+   console.log(sortArr.sort((a, b) => a - b)); //ascending order
+   console.log(sortArr.sort((a, b) => b - a)); //descending order
+   console.log(sortArr.sort((a, b) => a - b).reverse()); //reversing the order
+   console.log(sortArr.sort((a, b) => a - b).reverse().join(' ')); //reversing the order and joining them with a space
+
+
+   function display() {
+      let replaceInput = document.querySelector('.replacedInput')
+      let displayName = document.querySelector('.output')
+      let input = replaceInput.value.trim();
+      displayName.innerHTML = <h1>${eval(input)}</h1>
+
+   }
+
+   // ways of creating an array
+   let arrr = [];
+   let arrr2 = new Array();
+   let arrr3 = Array();
+   console.log(arr);
+   console.log(arr2);
+   console.log(arr3);
+
+   // Arr of numbers
+   let numArr = [1, 2, 3, 4, 5];
+   let stringArr = ["Ojett", "Francis", "Somidotun"];
+   let arrOfArr = [
+      [1, 2, 3, 4],
+      [5, 6, 7, 8, 9],
+      [10, 11, 12, 13, 14, 15, 16],
+   ];
+   let mixedArrv = [1, "Francis", true, null];
+
+   let string = "Javascript";
+   numArr[0] = 600;
+   console.log(numArr);
+
+   arrOfArr[0][2] = 70;
+   console.log(arrOfArr);
+
+   // Length
+   console.log(arrOfArr.length);
+
+   // Last Index in string
+   console.log(numArr.length - 1);
+   console.log(arrOfArr[arrOfArr.length - 1]);
+   console.log();
+
+   console.log(arrOfArr[arrOfArr.length - 1]);
+   let lastArray = arrOfArr[arrOfArr.length - 1];
+   console.log(lastArray[lastArray.length - 1]);
+
+   // to give the same output >>>>>>
+   console.log(arrOfArr[arrOfArr.length - 1][arrOfArr[arrOfArr.length - 1].length - 1]);
+
+   // Includes in Array
+   console.log(stringArr.includes("Mr Stan"));
+
+   // Slice in Array
+   console.log(numArr.slice(0, 3));
+
+   //   Push used to modify arrays
+   let newNumArr = [1, 2, 3, 4, 5, 6]
+   newNumArr.push(7)
+   console.log(newNumArr);
+
+   let javaUser = []
+   console.log(javaUser);
+   javaUser.push('Mr Faruq')
+   console.log(javaUser);
+   javaUser.push('Mr Ojett')
+   console.log(javaUser);
+
+   // Pop used to remove the last characters in an array
+
+   let newestArr = [1, 2, 3, 4, 5]
+   newestArr.pop()
+   console.log(newestArr);
+
+   // Unshift used to add characters to the begining of an array
+
+   newestArr.unshift(0)
+   console.log(newestArr);
+
+   // Shift used to remove the first characters in an array
+
+   newestArr.shift(0)
+   console.log(newestArr);
+
+   // Join turning an array to a string
+   let newNum = [1, 2, 3, 4, 5, 6, 7]
+   console.log(newNum.join(','));
+
+   // Eval sees things as operators not only strings
+   console.log(newNum.join('+'));
+   console.log(eval(newNum.join('+')));
+
+   // //Join
+   // let newNum = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+   // console.log(newNum.join('+'));
+
+   //splice
+   let spliceArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+   spliceArr.splice(3, 5, 400, 410, 420, 430)
+   console.log(spliceArr);
+
+   let spliceArrstring = ['Mr Adedotun']
+   let displayName = document.querySelector('.output')
+   displayName.innerHTML = `<h1>${spliceArrstring[0]}</h1>`
+
+   function spliceName() {
+      let replaceInput = document.querySelector('.replaceInput')
+      spliceArrstring.splice(0, 1, replaceInput.value.trim())
+      displayName.innerHTML = `<h1>${spliceArrstring[0]}</h1>`
+   }
+
+
+   // Sort
+   let numberArr = [1, 6, 7, 8, 4, 3, 2];
+   numberArr.sort((a, b) => a - b)
+   // numberArr.sort((a, b) => b - a) descending order
+   console.log(numberArr);
+
+   let stringArr2 = ['Gbolahan', 'stan', 'Shalom', 'Aisha', 'Dara', 'Ezekiel'];
+   stringArr2.sort()
+   console.log(stringArr2);
+
+   // Reverse
+   stringArr2.reverse()
+   console.log(stringArr2);
+</script>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- <script src="https://kit.fontawesome.com/5f0f08461d.js" crossorigin="anonymous"></script>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"></script> -->
+
+   <title>Document</title>
+   <style>
+      * {
+         padding: 20px;
+         margin: 20px;
+         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .name {
+         justify-content: center;
+         align-self: center;
+         text-align: center;
+      }
+
+      .glo {
+         width: 300px !important;
+         aspect-ratio: 2;
+         background-color: rgba(29, 121, 29, 0.534) !important;
+      }
+
+      .card {
+         width: 300px !important;
+         aspect-ratio: 2;
+         background-color: rgb(240, 247, 240) !important;
+      }
+
+      .mtn {
+         width: 300px !important;
+         aspect-ratio: 2;
+         background-color: rgb(251, 255, 0) !important;
+      }
+
+      .airtel {
+         width: 300px !important;
+         aspect-ratio: 2;
+         background-color: rgb(252, 0, 0) !important;
+      }
+
+      .mobile {
+         width: 300px !important;
+         aspect-ratio: 2;
+         background-color: lightgreen !important;
+      }
+
+      .glo:hover,
+      .airtel:hover,
+      .mtn:hover,
+      .mobile:hover {
+         border: 4px black solid;
+         position: relative;
+      }
+
+      .provider {
+         display: flex;
+         flex: 2;
+         flex-direction: column;
+         justify-content: space-evenly;
+         align-items: center;
+      }
+
+      input {
+         border-radius: 6px;
+         border: solid black 12px;
+         width: 75vw;
+         place-content: red;
+      }
+
+      .row,
+      .data {
+         border: solid black 4px;
+         background-color: red;
+         color: yellow;
+         font-size: 30px
+      }
+   </style>
+</head>
+
+<body>
+   <h1 class="name">Recharge Card Generator</h1>
+   <div class="provider ">
+      <section>
+         <button class="glo" onclick="glo()">GLO - #0 </button>
+         <button class="mtn " onclick="mtn()">MTN - #0</button>
+         <button class="airtel " onclick="airtel()">Airtel - #0</button>
+         <button class="mobile " onclick="mobile()">9mobile - #0</button>
+      </section>
+      <div class="display"> </div>
+   </div>
+   <div>
+      <input type="text" class="loading">
+      <button class="load">load</button>
+   </div>
+
+   <div class="table">
+      <table class="w-100">
+         <thead class="w-100">
+            <tr class="w-100">
+               <th class="data">S/N</th>
+               <th class="data">NETWORK</th>
+               <th class="data">PIN</th>
+               <th class="data">USED?</th>
+            </tr>
+         </thead>
+
+      </table>
+
+   </div>
+</body>
+
+</html>
+<script>
+   function glo() {
+      update('Glo', 'green')
+   }
+
+   function mtn() {
+      update('MTN', 'yellow')
+   }
+   function airtel() {
+      update('Airtel', 'red')
+   }
+   function mobile() {
+      update('9mobile', 'lightgreen')
+   }
+
+
+   function update(networkk, color) {
+      show = document.querySelector(".display")
+      all = document.querySelector(".provider")
+      show.innerHTML = `<p> Hi, Kindly click on the generate button to generate ${name} cards </p> 
+      <div>
+         <button class=card> 100</button>
+         <button class=card> 200 </button>
+         <button class=card> 500 </button>
+         <button class=card> 1000 </button>
+   </div >
+      <button class= generate style= 'width= 75%, display=flex , justify-content =  center'> Generate </button>
+   `
+      all.style.background = color
+      const btn = document.createElement('button');
+      const btn2 = document.querySelector('.load');
+      const generate = document.querySelector('.generate')
+      // const loadingInput = document.querySelector('.loading')
+      btn.textContent = "Generate";
+      let network = networkk.toLowerCase();
+      console.log(network);
+
+
+      generate.addEventListener('click', function generateCard(networkk) {
+         cardnumber = ''
+         console.log(network)
+         for (let index = 0; index < 10; index++) {
+            cardnumber += Math.floor(Math.random() * 10)
+         }
+         if (network === "glo") {
+            cardnumber = cardnumber + "01"
+         } else if (network === 'mtn') {
+            cardnumber = cardnumber + "70"
+         } else if (network === 'airtel') {
+            cardnumber = cardnumber + "03"
+         } else {
+            cardnumber = cardnumber + "53"
+         }
+
+         cardlist = document.querySelector("table")
+         body = document.createElement("tbody")
+         row = document.createElement("tr")
+         data1 = document.createElement("td")
+         data2 = document.createElement("td")
+         data3 = document.createElement("td")
+         data = document.createElement("td")
+         p = document.querySelector('.display')
+
+         p.innerHTML = `< p > Your ${network} card number is ${cardnumber} </p >
+      <p> do you want to generate another ${network} pin ? </p> `
+
+         ""
+        
+
+         data1.textContent = network
+         data2.textContent = cardnumber
+         data3.textContent = "NO"
+         cardlist.appendChild(body)
+         body.appendChild(row)`
+         row.appendChild(data)
+         row.appendChild(data1)
+         row.appendChild(data2)
+         row.appendChild(data3)
+
+      })
+
+
+      btn2.addEventListener('click', function (networkk) {
+         loadInput = ""
+         loadInput = document.querySelector('.loading').value.trim()
+         if (network === 'glo' && loadInput.slice(-2) === '01') {
+            console.log('glo')
+         } else if (network === 'mtn' && loadInput.slice(- 2) === '70') {
+            console.log("Mtn")
+         } else if (network === 'airtel' && loadInput.slice(- 2) === '03') {
+            console.log("airtel")
+         } else if (network === '9mobile' && loadInput.slice(- 2) === '53') {
+            console.log("9mobile")
+         } else if (loadInput === "" || network === null) {
+            console.log("Enter your pin or Select Network");
+         } else if ((network === glo && loadInput.slice(-2) !== '01')) {
+            console.log(" Select the right network");
+         } else if ((network === 'mtn' && loadInput.slice(- 2) !== '70')) {
+            console.log(" Select the right network");
+         } else if ((network === 'airtel' && loadInput.slice(- 2) !== '03')) {
+            console.log("Select the right network")
+         } else if ((network === '9mobile' && loadInput.slice(- 2) !== '53')) {
+            console.log("Select the right Network");
+         }
+      })
+   }
+
+</script>

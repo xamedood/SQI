@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <div id="newDiv"></div>
+
+   <script>
+      let divFromDOM = document.getElementById('newDiv')
+      console.log(divFromDOM)
+      divFromDOM.style.width = '30vw'
+      divFromDOM.style.aspectRatio = '0.5'
+      divFromDOM.style.borderRadius = '30px'
+      divFromDOM.style.display = 'flex'
+      divFromDOM.style.backgroundColor = 'blue'
+      divFromDOM.style.justifyContent = 'center'
+      divFromDOM.style.alignItems = 'center'
+      divFromDOM.innerHTML = 'Hello Everybody'
+      divFromDOM.style.color = 'red'
+      divFromDOM.style.fontSize = '30px'
+
+
+      // Non primitive
+      //arrays
+      let arr = [1, 2, 3, 4, 5]
+      console.log(arr);
+      arr[0] = 10
+      console.log(arr);
+
+      //string methods
+      let thisClass = 'Javascipt is very interesting'
+      console.log(thisClass.length - 1)
+      let lastIndex = thisClass[5]
+      let firstIndex = thisClass[7]
+      console.log(thisClass[thisClass.length - 1])
+      console.log(firstIndex)
+      console.log(lastIndex)
+      let targetIndex = thisClass.length - 16
+      console.log(thisClass[targetIndex])
+
+      //concatenation
+      let firstName = 'John'
+      let space = ' '
+      let lastName = 'Fred'
+      let fullName = firstName.concat(space, lastName)
+      console.log(fullName)
+      console.log(firstName + ' ' + lastName)
+
+      //Interpolation
+      let sentence = `My name is ${firstName} and my lastname is ${lastName}`
+      console.log(sentence)
+
+      // ReplaceAll
+
+
+      //slice
+      let nameOfCourse = 'Javascript is very amazing once again'
+      let slicedOut = nameOfCourse.slice(19, 27)
+      console.log(slicedOut)
+
+      //split
+      let newWord = '  '
+
+      let replace = nameOfCourse.includes('Java')
+      let output2 = nameOfCourse.replaceAll('Java', '****')
+      console.log(output2)
+
+
+
+      //mathrandom
+      let randNum = Math.floor(Math.random() * 6) / 2
+      console.log(randNum);
+      let randNum1 = Math.floor(Math.random()) + 7
+      console.log(randNum1);
+      let randNum2 = Math.floor(Math.random()) / 2
+      console.log(randNum2);
+
+      //Array, length, concat, indexOf, slice, splice, join, toString, includes, lastIndexOf, isArray, fill, push (add ), pop(remove), shift(skip), unshift, reverse, sort
+      const names = [1, 2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4]
+      const numbers = Array(8).fill(3)
+      console.log(names.toString());
+      console.log(numbers.concat(names))
+      console.log(names.splice(7, 1, 6))
+      // console.log(names.split('')) to change text to array
+      console.log(names.join('*'))
+
+   </script>
+</body>
+
+</html>

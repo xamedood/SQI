@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Airtime Generator</title>
+   <style>
+      body {
+         font-family: Arial;
+         text-align: center;
+      }
+
+      .provider {
+         display: flex;
+         justify-content: center;
+         gap: 20px;
+         margin: 20px;
+      }
+
+      .network-btn {
+         width: 150px;
+         height: 80px;
+         font-size: 18px;
+         color: white;
+         border: none;
+         border-radius: 8px;
+         cursor: pointer;
+      }
+
+      .glo {
+         background: green;
+      }
+
+      .mtn {
+         background: gold;
+         color: black;
+      }
+
+      .airtel {
+         background: red;
+      }
+
+      .mobile {
+         background: seagreen;
+      }
+
+      table {
+         width: 90%;
+         margin: auto;
+         border-collapse: collapse;
+      }
+
+      th,
+      td {
+         border: 1px solid black;
+         padding: 10px;
+         text-align: center;
+      }
+   </style>
+</head>
+
+<body>
+
+   <h1>Recharge Card Generator</h1>
+
+   <div class="provider">
+      <button class="network-btn glo" onclick="selectNetwork('glo')">GLO - ₦0</button>
+      <button class="network-btn mtn" onclick="selectNetwork('mtn')">MTN - ₦0</button>
+      <button class="network-btn airtel" onclick="selectNetwork('airtel')">Airtel - ₦0</button>
+      <button class="network-btn mobile" onclick="selectNetwork('mobile')">9mobile - ₦0</button>
+   </div>
+
+   <div id="network-panel"> </div>
+
+   <hr>
+
+   <table>
+      <thead>
+         <tr>
+            <th>Network</th>
+            <th>Amount</th>
+            <th>PIN</th>
+            <th>Used?</th>
+         </tr>
+      </thead>
+      <tbody id="card-table">
+      </tbody>
+   </table>
+
+   <script>
+      let currentNetwork = '';
+      let airtimeBalances = JSON.parse(localStorage.getItem("balances")) || { glo: 0, mtn: 0, airtel: 0, mobile: 0 };
+      let pinRecords = JSON.parse(localStorage.getItem("pins")) || {};
+
+      // Load saved data on page load
+      window.onload = function () {
+         updateAllButtons();
+         loadTable();
+      };
+
+      function selectNetwork(network) {
+         currentNetwork = network;
+         const panel = document.getElementById("network-panel");
+         panel.innerHTML = `
+        <h3>${network.toUpperCase()} Airtime Generator</h3>
+        <label>Select Amount:</label>
+        <select id="amount">
+            <option value="100">₦100</option>
+            <option value="200">₦200</option>
+            <option value="500">₦500</option>
+            <option value="1000">₦1000</option>
+        </select>
+        <button onclick="generateCard()">Generate</button>
+        <br><br>
+        <hr>
+        <input type="text" id="pin-input" placeholder="Enter PIN to load">
+        <button onclick="loadAirtime()">Load</button>
+    `;
+      }
+
+      function generateCard() {
+         let amount = document.getElementById("amount").value;
+         let pin = '';
+         for (let i = 0; i < 10; i++) pin += Math.floor(Math.random() * 10);
+
+         let suffixMap = { glo: "01", mtn: "70", airtel: "03", mobile: "53" };
+         pin += suffixMap[currentNetwork];
+
+         pinRecords[pin] = { network: currentNetwork, amount: parseInt(amount), used: false };
+         savePins(); //local storage.
+
+         addRowToTable(currentNetwork, amount, pin, "No");
+      }
+
+      function loadAirtime() {
+         let pin = document.getElementById("pin-input").value.trim();
+         if (pinRecords[pin]) {
+            let record = pinRecords[pin];
+            if (record.network !== currentNetwork) {
+               alert("This PIN is for another network!");
+               return;
+            }
+            if (record.used) {
+               alert("This airtime has already been used!");
+               return;
+            }
+            record.used = true;
+            airtimeBalances[currentNetwork] += record.amount;
+            saveBalances();
+            savePins();
+            updateButtonLabel(currentNetwork);
+            updateTableUsage(pin);
+            alert(`₦${record.amount} successfully loaded on ${currentNetwork.toUpperCase()}`);
+         } else {
+            alert("Invalid PIN!");
+         }
+      }
+
+      function updateButtonLabel(network) {
+         document.querySelector(`.${network}`).innerText =
+            network.toUpperCase() + " - ₦" + airtimeBalances[network];
+      }
+
+      function updateAllButtons() {
+         for (let net in airtimeBalances) {
+            updateButtonLabel(net);
+         }
+      }
+
+      function updateTableUsage(pin) {
+         let rows = document.getElementById("card-table").rows;
+         for (let r of rows) {
+            if (r.cells[2].innerText === pin) {
+               r.cells[3].innerText = "Yes";
+               break;
+            }
+         }
+      }
+
+      function addRowToTable(network, amount, pin, used) {
+         let table = document.getElementById("card-table");
+         let row = table.insertRow();
+         row.insertCell(0).innerText = network.toUpperCase();
+         row.insertCell(1).innerText = "₦" + amount;
+         row.insertCell(2).innerText = pin;
+         row.insertCell(3).innerText = used;
+      }
+
+      function loadTable() {
+         let table = document.getElementById("card-table");
+         table.innerHTML = "";
+         for (let pin in pinRecords) {
+            let record = pinRecords[pin];
+            addRowToTable(record.network, record.amount, pin, record.used ? "Yes" : "No");
+         }
+      }
+
+      function savePins() {
+         localStorage.setItem("pins", JSON.stringify(pinRecords));
+      }
+
+      function saveBalances() {
+         localStorage.setItem("balances", JSON.stringify(airtimeBalances));
+      }
+   </script>
+
+</body>
+
+</html>

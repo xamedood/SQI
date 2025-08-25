@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Number</title>
+</head>
+
+<body>
+   <!-- Create a div container on HTML document and create 100 to 100 numbers dynamically and append to the container div.
+Even numbers background is green
+Odd numbers background is yellow
+Prime numbers background is red -->
+
+</body>
+
+</html>
+<script>
+
+
+   // Create container div for the grid
+   const container = document.createElement("div");
+   container.style.display = "grid";
+   container.style.gridTemplateColumns = "repeat(10, 50px)"; // 10 columns
+   container.style.gap = "5px"; // spacing between boxes
+   container.style.margin = "20px";
+   document.body.appendChild(container);
+
+   // Loop to create 100 number boxes
+   for (let i = 1; i <= 100; i++) {
+      const numberDiv = document.createElement("div");
+      numberDiv.textContent = i;
+
+      // Style each number box
+      numberDiv.style.width = "50px";
+      numberDiv.style.height = "50px";
+      if (i % 2 !== 0 && i % 3 !== 0 && i % 5 !== 0 && i % 7 !== 0 && i % 9 !== 0) {
+         numberDiv.style.backgroundColor = "skyblue";
+      } else if (i == 2 && i == 3 && i == 5 && i == 7 && i == 9) {
+         numberDiv.style.backgroundColor = "skyblue";
+      } else if (i % 2 == 0) {
+         numberDiv.style.backgroundColor = "green"
+      }
+      else {
+         numberDiv.style.backgroundColor = "red"
+      }
+      numberDiv.style.color = "white";
+      numberDiv.style.display = "flex";
+      numberDiv.style.alignItems = "center";
+      numberDiv.style.justifyContent = "center";
+      numberDiv.style.borderRadius = "5px";
+      numberDiv.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.2)";
+      numberDiv.style.fontSize = "16px";
+      numberDiv.style.fontFamily = "Arial, sans-serif";
+
+      // Add number box to the container
+      container.appendChild(numberDiv);
+
+
+   }
+
+</script>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      body {
+         font-family: Arial, Helvetica, sans-serif;
+         max-width: 500px;
+         margin: 20px auto;
+         padding: 20px;
+      }
+
+      h1 {
+         text-align: center;
+      }
+
+      .input-section {
+         display: flex;
+         margin-bottom: 20px;
+      }
+
+      #taskInput {
+         flex: 1;
+         padding: 10px;
+         font-size: 16px;
+      }
+
+      button {
+         padding: 10px;
+         background-color: #4CAF50;
+         color: white;
+         border: none;
+         cursor: pointer;
+         margin-left: 5px;
+      }
+
+      button:hover {
+         background-color: #45a049;
+      }
+
+      ul {
+         list-style-type: none;
+         padding: 0;
+      }
+
+      li {
+         display: flex-end;
+         justify-content: space-between;
+         align-items: center;
+         padding: 10px;
+         margin: 5px 0;
+         background-color: #f9f9f9;
+         border: 1px solid #ddd
+      }
+
+      .delete-btn {
+         background-color: #f44336;
+      }
+
+      .delete-btn:hover {
+         background-color: #da190b;
+      }
+
+      .edit-btn {
+         background-color: #2196F3;
+      }
+
+      .edit-btn:hover {
+         background-color: #1976D2;
+      }
+
+      .completed {
+         text-decoration: line-through;
+         opacity: 0.7;
+      }
+
+      .edit-input {
+         flex: 1;
+         padding: 5px;
+         font-size: 16px;
+      }
+   </style>
+</head>
+
+<body>
+   <h1>To-Do List</h1>
+   <div class="input-section">
+      <input type="text" id="taskInput" placeholder="Enter a new task">
+      <button onclick="addTask()">Add Task</button>
+   </div>
+   <ul id="taskList"></ul>
+   <script>
+      function addTask() {
+         const taskInput = document.getElementById('taskInput')
+         const taskText = taskInput.value.trim();
+
+         if (taskText === '') {
+            alert('Please enter a task!')
+         }
+         const taskList = document.getElementById('taskList');
+         const li = createTaskElement(taskText);
+         taskList.appendChild(li)
+         taskInput.value = ''
+      }
+      function createTaskElement(taskText) {
+         const li = document.createElement('li');
+
+         const taskSpan = document.createElement('span')
+         taskSpan.textContent = taskText;
+         taskSpan.onclick = function () {
+            this.parentElement.classList.toogle('completed')
+         };
+
+         const editBtn = document.createElement('button')
+         editBtn.textContent = 'Edit'
+         editBtn.className = 'edit-btn';
+         editBtn.onclick = function () {
+            editTask(li, taskSpan)
+         }
+         const deleteBtn = document.createElement('button')
+         deleteBtn.textContent = 'Delete'
+         deleteBtn.className = 'delete-btn'
+         deleteBtn.onclick = function () {
+            li.parentElement.removeChild(li);
+         }
+         li.appendChild(taskSpan)
+         li.appendChild(editBtn)
+         li.appendChild(deleteBtn)
+         return li;
+      }
+
+      function editTask(li, taskSpan) {
+         const editInput = document.createElement('input');
+         const saveBtn = document.createElement('Save')
+         editInput.type = 'text';
+         editInput.className = 'edit-input';
+         editInput.value = taskSpan.textContent;
+
+         saveBtn.textContent = 'Save';
+         saveBtn.onclick = function () {
+            const newText = editInput.value.trim();
+            if (newText === '') {
+               alert('Task cannot be empty')
+               return;
+            }
+            const newSpan = document.createElement('span')
+            newSpan.textContent = newText;
+            newSpan.onclick = function () {
+               this.parentElement.classList.toogle('completed');
+            };
+            li.innerHtml = ''
+            li.appendChild(newSpan);
+            li.appendChild(createEditButton());
+            li.appendChild(createDeleteButton());
+         }
+         li.innerHtml = ''
+         li.appendChild(editInput)
+         li.appendChild(saveBtn)
+         editInput.focus();
+      }
+
+      function createEditButton() {
+         const editBtn = document.getElementById('input');
+         editBtn.type = 'Edit';
+         editBtn.className = 'edit-input';
+         editBtn.value = taskSpan.textContent;
+      }
+
+   </script>
+</body>
+
+</html>

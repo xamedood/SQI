@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <div id="output">
+
+   </div>
+   <div id="outputs"></div>
+
+</body>
+
+</html>
+<script>
+   let nameArr = ['Gbolahan', 'Shalom', 'dara', 'voice', 'ojett', 'salam']
+   let numberArr = [1, 2, 3, 4, 5, 6, 7, 8]
+   let sum = 0
+
+   for (let i = 0; i < nameArr.length; i++) {
+      const element = nameArr[i];
+      console.log(element);
+      output.innerHTML += `<h1>${element}</h1>`
+   }
+
+   for (let int = 1; int <= 12; int++) {
+      console.log(`2 * ${int} = ${2 * int}`);
+      console.log(int);
+   }
+
+   for (let int = 1; int < 5; int++) {
+      console.log(int);
+   }
+
+   for (let i = 0; i < numberArr.length; i++) {
+      let element = numberArr[i];
+      sum = sum + element
+   }
+   console.log(sum);
+
+
+
+
+   //#
+   //##
+   //###
+   //####
+   //#####
+   //######
+
+   let tagSum = ''
+   for (let i = 0; i < 7; i++) {
+      tagSum += '#'
+      console.log(tagSum);
+   }
+   //FOROF LOOP
+   for (const element of nameArr) {
+      console.log(element);
+      output.innerHTML += `<h1 style= color:red;>${element}</h1>`
+   }
+   nameArr.forEach((element) => {
+      console.log(element)
+   })
+   let MultiArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+   for (const element of MultiArr) {
+      console.log(`2 * ${element} = ${2 * element}`);
+      document.getElementById('outputs').innerHTML = `${element}`
+   }
+
+   //BREAK,CONTINUE
+   //Break is used to stop a loop
+   let javaUsers = ['Gbolahan', 'Shalom', 'dara', 'voice', 'ojett', 'salam']
+   let reactUsers = ['Grant', 'Testimony', 'Habeeb', 'Grant']
+   let checker = 'htmlUsers'
+   for (let index = 0; index < javaUsers.length; index++) {
+      if (checker === 'javaUsers') {
+         const element = javaUsers[index];
+         console.log(element);
+      } else if (checker === reactUsers[index]) {
+         if (index === reactUsers.length) {
+            break
+         }
+         const element = reactUsers[index];
+         console.log(element);
+      } else {
+         console.log('Invlid Input');
+         break
+
+      }
+
+   }
+
+   //CONTINUE
+   for (let index = 0; index < 6; index++) {
+      if (index === 3) {
+         continue
+      }
+      console.log(index);
+
+   }
+
+</script>
